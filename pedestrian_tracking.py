@@ -19,7 +19,7 @@ if args["images"] is None:
         ret, image = cap.read() 
 
         if ret: 
-            image = imutils.resize(image,width=min(400, image.shape[1]))
+            image = imutils.resize(image,width=min(600, image.shape[1]))
 
     	(rects, weights) = hog.detectMultiScale(image, winStride=(4, 4),padding=(8, 8), scale=1.05)
 
@@ -35,7 +35,7 @@ if args["images"] is None:
         if cv2.waitKey(25) & 0xFF == ord('q'): 
             break
     cap.release()
-    
+
 else :
     imagePaths = list(paths.list_images(args["images"]))
     for imagePath in imagePaths:
